@@ -2,12 +2,12 @@
     <div class="print-container">
 
         <div class="func-edit">
-            <button>打印</button>
+            <button @click="print">打印</button>
             <button>清空</button>
             <button>增行</button>
             <button>删行</button>
         </div>
-        <div class="form">
+        <div class="form" ref="form">
             <div class="form-title">
                 <h1>表单标题·表单</h1>
                 <span>打印时间：20190525 19:58</span>
@@ -73,6 +73,16 @@ export default {
 
       }
     }
+  },
+  mounted() {
+      console.log(this.$refs);
+  },
+  methods: {
+      print() {
+          var dom = this.$refs.form;
+
+          
+      }
   }
 }
 </script>
