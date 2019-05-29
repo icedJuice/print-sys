@@ -11,16 +11,22 @@
       <el-container>
         <el-aside width="200px">
           <div class="left-cont">
-            <div>默认的</div>
-            <div>第一个</div>
-            <div>第二个</div>
+            <h1>大标题</h1>
+            <div class="mode-items">
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+              <div class="item"></div>
+            </div>
           </div>
         </el-aside>
         <el-container>
           <el-main>
-            <!-- <PrintTabel></PrintTabel> -->
+            <PrintTabel></PrintTabel>
           </el-main>
-          <el-footer>Footer</el-footer>
+          <el-footer>
+            <VFooter/>
+          </el-footer>
         </el-container>
       </el-container>
     </el-container>
@@ -28,9 +34,11 @@
 </template>
 <script>
 import PrintTabel from "@/components/printTabel";
+import VFooter from "@/components/VFooter";
 export default {
   components: {
-    PrintTabel
+    PrintTabel,
+    VFooter
   },
   data() {
     return {
@@ -47,6 +55,12 @@ export default {
 }
 .left-cont {
   min-height: 600px;
-  background-color: #eee;
+}
+.item {
+  margin-bottom: 20px;
+  width: 80%;
+  height: 100px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
 }
 </style>
