@@ -75,13 +75,11 @@ export default {
     }
   },
   mounted() {
-      console.log(this.$refs);
+    console.log(this.$refs);
   },
   methods: {
       print() {
-          var dom = this.$refs.form;
-
-          
+        // var dom = this.$refs.form;
       }
   }
 }

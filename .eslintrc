@@ -1,0 +1,21 @@
+{
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "plugins": [
+    "prettier",
+    "html",
+    "vue"
+  ],
+  "rules": {
+    "no-console": "off"
+  }
+}
