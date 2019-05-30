@@ -5,7 +5,7 @@ import { GET, POST } from './utils';
  *
  * @returns { prefabs: [] } prefabs 预制板数组;
  */
-export const getPrefabs = params => GET('/prefab/get', params);
+export const getPrefabs = GET('/prefab/get');
 
 /**
  * 存储一个预制板信息
@@ -13,7 +13,7 @@ export const getPrefabs = params => GET('/prefab/get', params);
  * @param {Object} prefab 预制板信息
  * @returns result
  */
-export const savePrefabs = prefab => POST('/prefab/save', prefab);
+export const savePrefabs = POST('/prefab/save');
 
 /**
  * 通过id 获取详情
@@ -21,7 +21,8 @@ export const savePrefabs = prefab => POST('/prefab/save', prefab);
  * @param {object} {id: ***} feedid
  * @returns result
  */
-export const getFeedyId = params => GET('/feed/getbyid', params);
+
+export const getFeedyId = GET('/feed/getbyid');
 
 /**
  * 存储一个feed
@@ -29,4 +30,4 @@ export const getFeedyId = params => GET('/feed/getbyid', params);
  * @param {Object} data {feed: {***}} feed
  * @returns result
  */
-export const saveFeed = data => POST('/feed/save');
+export const saveFeed = POST('/feed/save');

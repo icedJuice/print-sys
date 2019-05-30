@@ -22,7 +22,12 @@
         </el-aside>
         <el-container>
           <el-main>
-            <PrintTabel></PrintTabel>
+            <el-button type="primary" @click="handle1">主要按钮1</el-button>
+            <el-button type="primary">主要按钮2</el-button>
+            <el-button type="primary">主要按钮3</el-button>
+            <el-button type="primary">主要按钮4</el-button>
+
+            <!-- <PrintTabel></PrintTabel> -->
           </el-main>
           <el-footer>
             <VFooter/>
@@ -35,6 +40,8 @@
 <script>
 import PrintTabel from "@/components/printTabel";
 import VFooter from "@/components/VFooter";
+import * as API from "@/vendor/API";
+
 export default {
   components: {
     PrintTabel,
@@ -44,6 +51,13 @@ export default {
     return {
       msg: "Welcome to Your Vue.js App"
     };
+  },
+  methods: {
+    handle1() {
+      API.getPrefabs().then(data => {
+        console.log(data);
+      });
+    }
   }
 };
 </script>
