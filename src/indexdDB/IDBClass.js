@@ -134,7 +134,6 @@ export default class MyDb {
     store.clear();
   }
 
-
   // 删除数据库,name为 open时用的名字
   deleteDB(name) {
     let DBDelRequest = window.indexedDB.deleteDatabase(name);  // 删除指定数据库

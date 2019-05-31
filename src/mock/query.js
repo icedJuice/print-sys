@@ -1,5 +1,6 @@
-import { DB_FEED, DB_PREFAB } from '../indexdDB';
+import DB from '../indexdDB';
 
+const { DB_FEED, DB_PREFAB } = DB;
 
 export const getPrefabs = params => {
   return new Promise((resolve, reject) => {
@@ -21,6 +22,16 @@ export const savePrefab = data => {
 
 export const getFeedyId = id => {
   console.log(id);
+  const res = {
+    code: 0,
+    message: ok,
+    data: { id }
+  }
+  return res;
+}
+
+export const getFeedsByRole = role => {
+  console.log(role);
   const res = {
     code: 0,
     message: ok,

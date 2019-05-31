@@ -1,41 +1,38 @@
 <template>
-  <div class="hello">
+  <el-container>
+    <el-header>
+      <button class="logo">LOGO</button>
+      <div class="navs">
+        <el-link type="primary">主主主</el-link>&nbsp;&nbsp;&nbsp;&nbsp;
+        <el-link type="primary">副副副</el-link>
+      </div>
+    </el-header>
     <el-container>
-      <el-header>
-        <button class="logo">LOGO</button>
-        <div class="navs">
-          <el-link type="primary">主主主</el-link>&nbsp;&nbsp;&nbsp;&nbsp;
-          <el-link type="primary">副副副</el-link>
-        </div>
-      </el-header>
-      <el-container>
-        <el-aside width="200px">
-          <div class="left-cont">
-            <h1>大标题</h1>
-            <div class="mode-items">
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-              <div class="item"></div>
-            </div>
+      <el-aside width="200px">
+        <div class="left-cont">
+          <h1>大标题</h1>
+          <div class="mode-items">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
           </div>
-        </el-aside>
-        <el-container>
-          <el-main>
-            <el-button type="primary" @click="handle1">主要按钮1</el-button>
-            <el-button type="primary">主要按钮2</el-button>
-            <el-button type="primary">主要按钮3</el-button>
-            <el-button type="primary">主要按钮4</el-button>
-
-            <!-- <PrintTabel></PrintTabel> -->
-          </el-main>
-          <el-footer>
-            <VFooter/>
-          </el-footer>
-        </el-container>
+        </div>
+      </el-aside>
+      <el-container>
+        <el-main>
+          <el-button type="primary" @click="getPrefabs">主要按钮1</el-button>
+          <el-button type="primary" @click="savePrefab">主要按钮2</el-button>
+          <el-button type="primary" @click="getFeedyId">主要按钮3</el-button>
+          <el-button type="primary" @click="saveFeed">主要按钮4</el-button>
+          <!-- <PrintTabel></PrintTabel> -->
+        </el-main>
       </el-container>
     </el-container>
-  </div>
+    <el-footer>
+      <VFooter/>
+    </el-footer>
+  </el-container>
 </template>
 <script>
 import PrintTabel from "@/components/printTabel";
@@ -53,11 +50,14 @@ export default {
     };
   },
   methods: {
-    handle1() {
+    getPrefabs() {
       API.getPrefabs().then(data => {
         console.log(data);
       });
-    }
+    },
+    savePrefab() {},
+    getFeedyId() {},
+    saveFeed() {}
   }
 };
 </script>
