@@ -8,6 +8,7 @@ import Router from 'vue-router'
 import main from '@/pages/main';
 import list from '@/pages/list';
 import detail from '@/pages/detail';
+import print from '@/pages/printPage';
 
 Vue.use(Router);
 /* eslint-disable */
@@ -19,14 +20,19 @@ export default new Router({
       component: main
     },
     {
-        path: '/list',
-        name: 'list',
-        component: list
-      },
+      path: '/list',
+      name: 'list',
+      component: list
+    },
     {
       path: '/detail/:id',
       name: 'detail',
       component: detail
+    },
+    {
+      path: '/print',
+      name: 'print',
+      component: print
     }
   ]
 })

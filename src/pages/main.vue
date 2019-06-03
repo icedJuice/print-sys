@@ -4,7 +4,7 @@
       <VHeader/>
     </el-header>
     <el-container>
-      <el-aside width="200px">
+      <!-- <el-aside width="200px">
         <div class="left-cont">
           <h1>大标题</h1>
           <div class="mode-items">
@@ -14,19 +14,23 @@
             <div class="item"></div>
           </div>
         </div>
-      </el-aside>
+      </el-aside>-->
       <el-container>
         <el-main>
           <el-button type="primary" @click="getPrefabs">getPrefabs</el-button>
           <el-button type="primary" @click="savePrefab">savePrefab</el-button>
           <el-button type="primary" @click="getFeedById">getFeedyId</el-button>
           <el-button type="primary" @click="saveFeed">saveFeed</el-button>
-          <!-- <PrintTabel></PrintTabel> -->
+          <el-button type="primary" @click="print">print</el-button>
+          <PrintTabel ref="PrintTabel" id="PrintTabel"></PrintTabel>
+          <div class="div">
+            <!-- <iframe ref="printframe" src="/#/print" frameborder="0"></iframe> -->
+          </div>
         </el-main>
       </el-container>
     </el-container>
     <el-footer>
-      <VFooter/>
+      <!-- <VFooter/> -->
     </el-footer>
   </el-container>
 </template>
@@ -35,6 +39,7 @@ import PrintTabel from "@/components/printTabel";
 import VHeader from "@/components/VHeader";
 import VFooter from "@/components/VFooter";
 import * as API from "@/vendor/API";
+import { constants } from "crypto";
 
 export default {
   components: {
@@ -44,7 +49,7 @@ export default {
   },
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: ""
     };
   },
   methods: {
@@ -93,6 +98,12 @@ export default {
         ]
       };
       API.saveFeed(data).then(data => {});
+    },
+    print() {
+      const frame = this.$refs.printframe.contentWindow;
+      const printCont = frame.document.getElementById("print-cont");
+      printCont.innerHTML = document.getElementById("PrintTabel").innerHTML;
+      frame.print();
     }
   }
 };

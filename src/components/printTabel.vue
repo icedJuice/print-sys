@@ -1,18 +1,18 @@
 <template>
   <div class="print-container">
-    <!-- <div class="func-edit">
+    <div class="func-edit">
       <button @click="print">打印</button>
       <button>清空</button>
       <button>增行</button>
       <button>删行</button>
-    </div>-->
+    </div>
     <div class="form" ref="form">
-      <!-- <div class="form-title">
+      <div class="form-title">
         <h1>表单标题·表单</h1>
         <span>打印时间：20190525 19:58</span>
-      </div>-->
+      </div>
       <div class="line"></div>
-      <!-- <div class="msg">
+      <div class="msg">
         <div class="msg-line">
           <div>code: 123456789</div>
           <div>name: xiaoming</div>
@@ -23,86 +23,68 @@
           <div>adress: xiaoming</div>
           <div>xdrq: 12345678999</div>
         </div>
-      </div>-->
+      </div>
       <div class="tabel">
-        <div class="tabel-title table-list"></div>
-        <div class="tabel-items">
-          <table>
-            <tr>
-              <th>111</th>
-              <th>222</th>
-              <th>333</th>
-              <th>444</th>
-              <th>555</th>
-              <th>666</th>
-              <th>777</th>
-              <th>888</th>
-              <th>999</th>
-            </tr>
-            <tr>
-              <td>
-                <div contenteditable="true">11</div>
-              </td>
-              <td>
-                <div>22</div>
-              </td>
-              <td>
-                <div>33</div>
-              </td>
-              <td>
-                <div>44</div>
-              </td>
-              <td>
-                <div>55</div>
-              </td>
-              <td>
-                <div>66</div>
-              </td>
-              <td>
-                <div>77</div>
-              </td>
-              <td>
-                <div>88</div>
-              </td>
-              <td>
-                <div>99</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div>11</div>
-              </td>
-              <td>
-                <div>22</div>
-              </td>
-              <td>
-                <div>33</div>
-              </td>
-              <td>
-                <div>44</div>
-              </td>
-              <td>
-                <div>55</div>
-              </td>
-              <td>
-                <div>66</div>
-              </td>
-              <td>
-                <div>77</div>
-              </td>
-              <td>
-                <div>88</div>
-              </td>
-              <td>
-                <div>99</div>
-              </td>
-            </tr>
-          </table>
+        <div class="tabel-title table-list">
+          <div>序号</div>
+          <div>项目名称</div>
+          <div>耗材</div>
+          <div>制作内容</div>
+          <div>规格</div>
+          <div>单位</div>
+          <div>数量</div>
+          <div>面积</div>
+          <div>单价</div>
+          <div>金额</div>
+          <div>备注</div>
+        </div>
+        <div class="table-list">
+          <div>1</div>
+          <div>111</div>
+          <div>2222</div>
+          <div>84455</div>
+          <div>9444</div>
+          <div>54784</div>
+          <div>65</div>
+          <div>555</div>
+          <div>555</div>
+          <div>555</div>
+          <div>666</div>
+        </div>
+        <div class="table-list">
+          <div>1</div>
+          <div>111</div>
+          <div>2222</div>
+          <div>84455</div>
+          <div>9444</div>
+          <div>54784</div>
+          <div>65</div>
+          <div>555</div>
+          <div>555</div>
+          <div>555</div>
+          <div>666</div>
+        </div>
+        <div class="table-list">
+          <div>1</div>
+          <div>111</div>
+          <div>2222</div>
+          <div>84455</div>
+          <div>9444</div>
+          <div>54784</div>
+          <div>65</div>
+          <div>555</div>
+          <div>555</div>
+          <div>555</div>
+          <div>666</div>
+        </div>
+        <div class="table-sum1 table-list">
+          <div>金额（大写）</div>
+          <div></div>
+          <div>金额（小写）</div>
+          <div></div>
         </div>
       </div>
     </div>
-
-    <div class="func-todo"></div>
   </div>
 </template>
 
@@ -119,38 +101,10 @@ export default {
     console.log(this.$refs);
   },
   methods: {
-    print() {
-      // var dom = this.$refs.form;
-    }
+    print() {}
   }
 };
 </script>
 
 <style scoped>
-.print-container {
-  width: 700px;
-}
-.line {
-  height: 6px;
-  background-color: #999;
-}
-.msg-line div {
-  text-align: left;
-  display: inline-block;
-}
-.msg-line div:nth-child(1) {
-  width: 25%;
-}
-.msg-line div:nth-child(2) {
-  width: 50%;
-}
-.msg-line div:nth-child(3) {
-  width: 25%;
-}
-td div {
-  text-align: center;
-  height: 100%;
-  min-width: 100px;
-  max-width: 101px;
-}
 </style>
