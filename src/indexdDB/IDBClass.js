@@ -58,7 +58,7 @@ export default class MyDb {
   *版本变更，versionchange
   */
   addData(data, cb) {
-    console.log(data)
+    console.log('addData', data);
     let request = this.db.transaction([this.tableName], 'readwrite')  // 写入数据需要新建一个事务,新建时必须指定表格名称和操作模式（"只读"或"读写"）
       .objectStore(this.tableName) // 获取指定的IDBObjectStore 对象，
       .add(data);  // 通过表格对象的add()方法，向表格写入一条记录,写入操作是一个异步操作。

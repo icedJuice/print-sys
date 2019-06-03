@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: "VFooder",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"

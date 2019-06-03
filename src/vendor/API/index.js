@@ -22,8 +22,14 @@ export const savePrefabs = POST('/prefab/save');
  * @returns result
  */
 
-export const getFeedyId = GET('/feed/getbyid');
+export const getFeedById = POST('/feed/getbyid');
 
+/**
+ * 获取所有feed
+ * 
+ * @returns result
+ */
+export const getAllFeeds = GET('/feed/getall');
 /**
  * 存储一个feed
  * 

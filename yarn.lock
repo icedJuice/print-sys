@@ -5165,6 +5165,13 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
+mockjs-async@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/mockjs-async/-/mockjs-async-0.0.5.tgz#1e408fcca6bf0b92e938b12817be14fe37db1cbc"
+  integrity sha512-X/+P8BzpzeO3Frtm6IK9cdApq7p2OVOPMEiq+IX8lyfM+FVq9zBgBcDV6FCK5bkrOl5msCFyOQz1LKOMSMDwXw==
+  dependencies:
+    commander "*"
+
 mockjs@^1.0.1-beta3:
   version "1.0.1-beta3"
   resolved "https://registry.yarnpkg.com/mockjs/-/mockjs-1.0.1-beta3.tgz#d234f3c27256397564f2c955142e891909537209"

@@ -1,11 +1,7 @@
 <template>
   <el-container>
     <el-header>
-      <button class="logo">LOGO</button>
-      <div class="navs">
-        <el-link type="primary">主主主</el-link>&nbsp;&nbsp;&nbsp;&nbsp;
-        <el-link type="primary">副副副</el-link>
-      </div>
+      <VHeader/>
     </el-header>
     <el-container>
       <el-aside width="200px">
@@ -21,10 +17,10 @@
       </el-aside>
       <el-container>
         <el-main>
-          <el-button type="primary" @click="getPrefabs">主要按钮1</el-button>
-          <el-button type="primary" @click="savePrefab">主要按钮2</el-button>
-          <el-button type="primary" @click="getFeedyId">主要按钮3</el-button>
-          <el-button type="primary" @click="saveFeed">主要按钮4</el-button>
+          <el-button type="primary" @click="getPrefabs">getPrefabs</el-button>
+          <el-button type="primary" @click="savePrefab">savePrefab</el-button>
+          <el-button type="primary" @click="getFeedById">getFeedyId</el-button>
+          <el-button type="primary" @click="saveFeed">saveFeed</el-button>
           <!-- <PrintTabel></PrintTabel> -->
         </el-main>
       </el-container>
@@ -36,12 +32,14 @@
 </template>
 <script>
 import PrintTabel from "@/components/printTabel";
+import VHeader from "@/components/VHeader";
 import VFooter from "@/components/VFooter";
 import * as API from "@/vendor/API";
 
 export default {
   components: {
     PrintTabel,
+    VHeader,
     VFooter
   },
   data() {
@@ -56,20 +54,51 @@ export default {
       });
     },
     savePrefab() {},
-    getFeedyId() {},
-    saveFeed() {}
+    getFeedById() {
+      const queryRole = { key: "id", value: 1559359691823 };
+      API.getFeedById().then(data => {
+        console.log("getFeedyId", data);
+      });
+    },
+    saveFeed() {
+      const data = {
+        c_adress: "北京市启明 B 606",
+        c_phone: "13099999999",
+        c_name: "小张",
+        good_list: [
+          {
+            index: 2,
+            name: "小张",
+            drops: "pipe",
+            Spec: "100*100",
+            unit: "m2",
+            count: 3,
+            area: 100,
+            price: 100,
+            all_price: 300,
+            others: "nothing"
+          },
+          {
+            index: 1,
+            name: "小张",
+            drops: "pipe",
+            Spec: "100*100",
+            unit: "m2",
+            count: 3,
+            area: 100,
+            price: 100,
+            all_price: 300,
+            others: "nothing"
+          }
+        ]
+      };
+      API.saveFeed(data).then(data => {});
+    }
   }
 };
 </script>
 
 <style scoped>
-.navs {
-  text-align: right;
-  padding-right: 30px;
-}
-.left-cont {
-  min-height: 600px;
-}
 .item {
   margin-bottom: 20px;
   width: 80%;
