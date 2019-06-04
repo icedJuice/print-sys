@@ -39,8 +39,7 @@ import PrintTabel from "@/components/printTabel";
 import VHeader from "@/components/VHeader";
 import VFooter from "@/components/VFooter";
 import * as API from "@/vendor/API";
-import { constants } from "crypto";
-
+import NumToWord from "@/utils/NumToWord";
 export default {
   components: {
     PrintTabel,
@@ -52,13 +51,21 @@ export default {
       msg: ""
     };
   },
+  mounted() {
+    console.log(NumToWord(254.47));
+  },
   methods: {
     getPrefabs() {
       API.getPrefabs().then(data => {
         console.log(data);
       });
     },
-    savePrefab() {},
+    savePrefab() {
+      this.$message({
+        message: "预设板保存成功",
+        type: "success"
+      });
+    },
     getFeedById() {
       const queryRole = { key: "id", value: 1559359691823 };
       API.getFeedById().then(data => {
@@ -98,6 +105,11 @@ export default {
         ]
       };
       API.saveFeed(data).then(data => {});
+
+      this.$message({
+        message: "表单保存成功 ",
+        type: "success"
+      });
     },
     print() {
       const frame = this.$refs.printframe.contentWindow;
