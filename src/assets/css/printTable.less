@@ -5,6 +5,9 @@
   width: 1000px;
   font-size: 14px;
 }
+.form{
+  padding-top: 40px;
+}
 .form-title{
   text-align: right;
   padding: 20px 0 10px;
@@ -19,14 +22,24 @@
   }
 }
 .line {
-  height: 3px;
+  height: 2px;
   background-color: @border_color;
+  &.line-min{
+    height: 1px;
+  }
 }
-
+.msg{
+  padding: 2px 0;
+}
 .msg-line{
-  div {
+  padding: 4px 0;
+  &>div {
     text-align: left;
     display: inline-block;
+    div{
+      display: inline-block;
+      width: calc(100% - 100px);
+    }
     &:nth-child(1) {
       width: 25%;
     }
@@ -38,7 +51,19 @@
     }
   }
 }
-
+.table{
+  position: relative;
+}
+.desc-right{
+  width: 20px;
+  position: absolute;
+  top: 0;
+  right: -20px;
+  p{
+    writing-mode: vertical-lr;
+    margin: 6px 0;
+  }
+}
 .table-list{
   border-bottom: 1px solid @border_color;
   display: flex;
@@ -46,13 +71,20 @@
   &>div{
     min-height: 100%;
     box-sizing: border-box;
-    padding: 4px 2px;
+    padding: 6px 2px;
     display: inline-block;
     display: flex;
     justify-content: center;
     align-content: center;
     word-break: break-all;
     border-right: 1px solid @border_color;
+    input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      text-align: center;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
     &:first-child{
       border-left: 1px solid @border_color;
     }
@@ -81,18 +113,18 @@
       min-width: @plix * 1.5;
     }
     &:nth-of-type(9) {
-      min-width: @plix * 1.2;
+      min-width: @plix * 1.4;
     }
     &:nth-of-type(10) {
       min-width: @plix * 2;
     }
     &:nth-of-type(11) {
-      min-width: @plix * 2.5;
+      min-width: @plix * 2.3;
     }
   }
-  &.tabel-title{
-    border-top: 2px solid @border_color;
-    border-bottom: 2px solid @border_color;
+  &.table-title{
+    border-top: 1px solid @border_color;
+    border-bottom: 1px solid @border_color;
     div {
       border-top: none;
       border-right: 1px solid @border_color;
@@ -102,6 +134,7 @@
     }
   }
   &.table-sum1 {
+    border-bottom: 1.5px solid @border_color;
     div{
       &:nth-of-type(1) {
         min-width: @plix * 16.3;
@@ -114,13 +147,13 @@
         min-width: @plix * 1.5;
       }
       &:nth-of-type(4) {
-        min-width: @plix * 1.2;
+        min-width: @plix * 1.4;
       }
       &:nth-of-type(5) {
         min-width: @plix * 2;
       }
       &:nth-of-type(6) {
-        min-width: @plix * 2.5;
+        min-width: @plix * 2.3;
       }
     }
     
@@ -137,14 +170,14 @@
         justify-content: flex-start;
       }
       &:nth-of-type(3) {
-        min-width: @plix * 8;
+        min-width: @plix * 8.2;
         justify-content: flex-end;
       }
       &:nth-of-type(4) {
         min-width: @plix * 2;
       }
       &:nth-of-type(5) {
-        min-width: @plix * 2.5;
+        min-width: @plix * 2.3;
       }
     }
   }
@@ -152,9 +185,15 @@
     justify-content: space-around;
     border-left: 1px solid @border_color;
     border-right: 1px solid @border_color;
-    div{
+    &>div{
+      align-items: center;
       border-right: none;
       min-width: @plix * 5;
+      div{
+        display: inline-block;
+        width: calc(100% - 90px);
+        text-align: left;
+      }
       &:nth-of-type(1){
         border-left: none;
       }
@@ -175,13 +214,22 @@
     padding-left: 20px;
     display: flex;
     justify-content: flex-start;
-    padding-bottom: 50px;
+    padding-top: 4px;
+    padding-bottom: 30px;
+    &>div{
+      margin-right: 40px;
+    }
 }
 .form-cpyt{
   display: flex;
   justify-content: space-around;
-  div{
+  margin-bottom: 6px;
+  &>div{
     min-width: 25%;
     text-align: left;
+    div{
+      display: inline-block;
+      width: calc(100% - 100px);
+    }
   }
 }

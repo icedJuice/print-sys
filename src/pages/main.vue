@@ -4,9 +4,9 @@
       <VHeader/>
     </el-header>
     <el-container>
-      <!-- <el-aside width="200px">
+      <el-aside width="200px">
         <div class="left-cont">
-          <h1>大标题</h1>
+          <h1>业务单模板</h1>
           <div class="mode-items">
             <div class="item"></div>
             <div class="item"></div>
@@ -14,18 +14,13 @@
             <div class="item"></div>
           </div>
         </div>
-      </el-aside>-->
+      </el-aside>
       <el-container>
         <el-main>
-          <el-button type="primary" @click="getPrefabs">getPrefabs</el-button>
-          <el-button type="primary" @click="savePrefab">savePrefab</el-button>
-          <el-button type="primary" @click="getFeedById">getFeedyId</el-button>
-          <el-button type="primary" @click="saveFeed">saveFeed</el-button>
-          <el-button type="primary" @click="print">print</el-button>
-          <PrintTabel ref="PrintTabel" id="PrintTabel"></PrintTabel>
-          <div class="div">
-            <!-- <iframe ref="printframe" src="/#/print" frameborder="0"></iframe> -->
+          <div class="print-box">
+            <PrintTabel ref="PrintTabel" id="PrintTabel"></PrintTabel>
           </div>
+          <div class="print-box"><iframe ref="printframe" src="/#/print" frameborder="0"></iframe></div>
         </el-main>
       </el-container>
     </el-container>
@@ -122,6 +117,14 @@ export default {
 </script>
 
 <style scoped>
+.left-cont{
+  padding-left: 20px;
+}
+.print-box{
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 60px;
+}
 .item {
   margin-bottom: 20px;
   width: 80%;

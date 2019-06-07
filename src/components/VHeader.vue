@@ -1,9 +1,11 @@
 <template>
   <div class="header">
-    <button class="logo">LOGO</button>
+    <div class="logo">
+      <img :src="logoSrc" alt="青鸟影视">
+    </div>
     <div class="navs">
-      <el-link type="primary">主主主</el-link>&nbsp;&nbsp;&nbsp;&nbsp;
-      <el-link type="primary">副副副</el-link>
+      <el-link type="primary">单据打印</el-link>&nbsp;&nbsp;&nbsp;&nbsp;
+      <el-link type="primary">历史查询</el-link>
     </div>
   </div>
 </template>
@@ -13,14 +15,30 @@ export default {
   name: "VHeader",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      logoSrc: require('@/assets/img/logo.jpg')
     };
   }
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 20px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+}
+.logo{
+  width: 48px;
+  height: 48px;
+  img{
+    width: 100%;
+    border-radius: 4px;
+  }
+}
 .navs {
+  display: flex;
+  align-items: center;
   text-align: right;
   padding-right: 30px;
 }
