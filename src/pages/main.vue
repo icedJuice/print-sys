@@ -18,9 +18,9 @@
       <el-container>
         <el-main>
           <div class="print-box">
-            <PrintTabel ref="PrintTabel" id="PrintTabel"></PrintTabel>
+            <PrintTabel ref="PrintTabel" id="PrintTabel" @print="print"></PrintTabel>
           </div>
-          <div class="print-box"><iframe ref="printframe" src="/#/print" frameborder="0"></iframe></div>
+          <div class="print-box"><iframe ref="printframe" src="./#/print" frameborder="0"></iframe></div>
         </el-main>
       </el-container>
     </el-container>
@@ -46,9 +46,7 @@ export default {
       msg: ""
     };
   },
-  mounted() {
-    console.log(NumToWord(254.47));
-  },
+  mounted() {},
   methods: {
     getPrefabs() {
       API.getPrefabs().then(data => {
@@ -106,10 +104,10 @@ export default {
         type: "success"
       });
     },
-    print() {
+    print(data) {
       const frame = this.$refs.printframe.contentWindow;
-      const printCont = frame.document.getElementById("print-cont");
-      printCont.innerHTML = document.getElementById("PrintTabel").innerHTML;
+      const printCont = frame.document.getElementById("form");
+      printCont.innerHTML = data.html;
       frame.print();
     }
   }

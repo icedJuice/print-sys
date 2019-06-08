@@ -6,7 +6,7 @@
       <el-button type="warning" @click="clear">清空</el-button>
       <el-button type="primary" @click="print">打印</el-button>
     </div>
-    <div class="form" ref="form">
+    <div class="form" id="form" ref="form">
       <div class="form-title">
         <div class="title" contenteditable><DivModel :value="'青鸟影视·业务单'" @input="S_fillTitle"/></div>
         <span class="time">打印时间：{{time | formatTime('yyyy 年 mm 月 dd 日 hh:nn')}}</span>
@@ -264,7 +264,30 @@ export default {
         this.amount_all = this.arrySum(this.prodData.moneyList).toFixed(2);
       }
     },
-    print() {},
+    print() {
+      const formHtml = document.getElementById('form').innerHTML;
+      const printData = {
+        order: this.order,
+        prodData: this.prodData,
+        listLength: this.listLength,
+        amount_all: this.amount_all,
+        amount_youhui: this.amount_youhui,
+        amount_yufu: this.amount_yufu,
+        amount_pay: this.amount_pay,
+        sum1: this.sum1,
+        sum2: this.sum2,
+        sum4: this.sum4,
+        c_msg: this.c_msg,
+        s_msg: this.s_msg,
+        html: formHtml,
+      }
+
+      this.$emit('print', printData);
+      // 需要换单号
+      this.createOrderId();
+
+
+    },
     fillData(data) {
       if (data.index != undefined) {
         this[data.type][data.index] = data.value;
@@ -333,9 +356,5 @@ export default {
 <style scoped>
 .func-edit{
   text-align: left;
-}
-input{
-  border: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 </style>
