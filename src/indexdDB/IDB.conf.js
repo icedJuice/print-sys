@@ -10,7 +10,7 @@
  **/
 export const feedDbConf = {
   name: 'FEED', //数据库名
-  version: 1,  // 数据库版本号
+  version: 2,  // 数据库版本号
   tableName: 'feed', //表名
   keyPath: 'id', // 默认以id 为主键,可选
   indexArr: [
