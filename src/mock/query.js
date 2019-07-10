@@ -47,12 +47,13 @@ export const getAllFeeds = () => new Promise(resolve => {
 export const saveFeed = feed => {
   return new Promise((resolve, reject) => {
     const dataBody = JSON.parse(feed.body);
+    console.log(dataBody);
     const data = {
       id: Date.now(),
-      feed_id: Date.now(),
+      feed_id: dataBody.feed_id,
       created_at: Date.now(),
-      c_name: feed.c_name,
-      data: dataBody.data,
+      c_name: dataBody.c_name,
+      data: dataBody,
     }
     DB_FEED.addData(data, (err, res) => {
       if (err) {

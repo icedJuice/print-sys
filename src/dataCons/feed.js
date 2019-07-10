@@ -12,23 +12,22 @@ export default {
   id: null,  // unique
   feed_id: Date.now(), // unique
   created_at: Date.now(),
-  c_name: null, // unique
+  c_phone: '13099999999',
+  c_name: null,
   data: {
     c_adress: '北京市启明 B 606',
     c_phone: '13099999999',
-    good_list: [
-      {
-        index: 1,
-        name: '小张',
-        drops: 'pipe',
-        Spec: '100*100',
-        unit: 'm2',
-        count: 3,
-        area: 100,
-        price: 100,
-        all_price: 300,
-        others: 'nothing'
-      }
-    ]
+    feed_id: '121212',
+    c_name: '3232',
+    amount_all: data.amount_all,
+    amount_youhui: data.amount_youhui,
+    amount_yufu: data.amount_yufu,
+    amount_pay: 0,
+    sum1: {},
+    sum2: {},
+    sum4: {},
+    c_msg: {},
+    s_msg: {},
+    good_list: []
   }
 }

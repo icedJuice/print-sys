@@ -81,10 +81,10 @@
         </div>
 
         <div class="form-summary">
-          <div>公司地址：{{s_msg.adress}}</div>
-          <div>电话：{{s_msg.phone}}</div>
-          <div>微信: {{s_msg.wx}}</div>
-          <div>QQ: {{s_msg.qq}}</div>
+          <div>公司地址：<DivModel :value="''" :type="'s_msg'" :index="'adress'" @input="fillData"/></div>
+          <div>电话：<DivModel :value="''" :type="'s_msg'" :index="'phone'" @input="fillData"/></div>
+          <div>微信: <DivModel :value="''" :type="'s_msg'" :index="'wx'" @input="fillData"/></div>
+          <div>QQ: <DivModel :value="''" :type="'s_msg'" :index="'qq'" @input="fillData"/></div>
         </div>
         <div class="form-cpyt">
           <div>客户签名：</div>
@@ -156,7 +156,7 @@ export default {
         mask: ''
       },
       c_msg: {
-        lianxiren: '张经理',
+        lianxiren: '',
         adress: '',
         name: '',
         phone: '',
@@ -164,10 +164,10 @@ export default {
       s_msg: {
         zhuanyuan: '大鹏',
         kaidanren: '大鹏',
-        adress: '外国语幼儿园',
-        phone: '15099999999',
-        wx: 'qingninao',
-        qq: '123456'
+        adress: '',
+        phone: '',
+        wx: '',
+        qq: ''
       },
       // 当前时间
       time: Date.now(),
@@ -255,7 +255,6 @@ export default {
       if (this.needSunMoney(data.type)) {
         const arr = [].concat(this.prodData.moneyList);
         let sum = (Number(this.prodData.countList[data.index]) * Number(this.prodData.areaList[data.index]) * Number (this.prodData.perList[data.index])).toFixed(2) || '';
-       console.log(sum);
         if (isNaN(sum)) {
           sum = '';
         }

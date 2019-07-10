@@ -35,6 +35,7 @@ import VHeader from "@/components/VHeader";
 import VFooter from "@/components/VFooter";
 import * as API from "@/vendor/API";
 import NumToWord from "@/utils/NumToWord";
+import { constants } from 'crypto';
 export default {
   components: {
     PrintTabel,
@@ -65,39 +66,41 @@ export default {
         console.log("getFeedyId", data);
       });
     },
-    saveFeed() {
-      const data = {
-        c_adress: "北京市启明 B 606",
-        c_phone: "13099999999",
-        c_name: "小张",
-        good_list: [
-          {
-            index: 2,
-            name: "小张",
-            drops: "pipe",
-            Spec: "100*100",
-            unit: "m2",
-            count: 3,
-            area: 100,
-            price: 100,
-            all_price: 300,
-            others: "nothing"
-          },
-          {
-            index: 1,
-            name: "小张",
-            drops: "pipe",
-            Spec: "100*100",
-            unit: "m2",
-            count: 3,
-            area: 100,
-            price: 100,
-            all_price: 300,
-            others: "nothing"
-          }
-        ]
-      };
-      API.saveFeed(data).then(data => {});
+    saveFeed(data) {
+      const feed = {};
+
+      feed.feed_id = data.order.id; // 订单id
+
+      // // 客户信息
+      feed.c_adress = data.c_msg.adress; // 地址
+      feed.c_phone = data.c_msg.phone; // 电话
+      feed.c_name = data.c_msg.name; // 姓名
+
+      feed.amount_all = data.amount_all;
+      feed.amount_youhui = data.amount_youhui;
+      feed.amount_yufu = data.amount_yufu;
+      feed.amount_pay = data.amount_pay;
+
+      feed.sum1 = data.sum1;
+      feed.sum2 = data.sum2;
+      feed.sum4 = data.sum4;
+
+      feed.c_msg = data.c_msg;
+      feed.s_msg = data.s_msg;
+
+      feed.good_list = [];
+      const len = data.prodData.moneyList.length;
+      for (let i = 0; i < len; i ++) {
+         const obj = {
+          index: i + 1
+         }
+        Object.keys(data.prodData).forEach(p => {
+          obj[p.replace('List', '')] = data.prodData[p][i] || '';
+        })
+        feed.good_list.push(obj);
+      }
+
+      API.saveFeed(feed).then(data => {});
 
       this.$message({
         message: "表单保存成功 ",
@@ -109,6 +112,7 @@ export default {
       const printCont = frame.document.getElementById("form");
       printCont.innerHTML = data.html;
       frame.print();
+      this.saveFeed(data);
     }
   }
 };

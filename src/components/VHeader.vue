@@ -4,8 +4,8 @@
       <img :src="logoSrc" alt="青鸟影视">
     </div>
     <div class="navs">
-      <el-link type="primary">单据打印</el-link>&nbsp;&nbsp;&nbsp;&nbsp;
-      <el-link type="primary">历史查询</el-link>
+      <el-link type="primary" href="./#/">单据打印</el-link>&nbsp;&nbsp;&nbsp;&nbsp;
+      <el-link type="primary" href="./#/list" >历史查询</el-link>
     </div>
   </div>
 </template>

@@ -20,10 +20,14 @@ export const feedDbConf = {
     },
     {
       indexName: 'created_at',
-      unique: false,
+      unique: true,
     },
     {
       indexName: 'c_name',
+      unique: false,
+    },
+    {
+      indexName: 'c_phone',
       unique: false,
     },
   ]   // 索引数组
